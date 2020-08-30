@@ -11,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- 引入CSS等樣式內容 -->
   <?php include('style.php') ?>
-  <title><?php echo BOBO美食 ?></title>
+  <title><?php echo title_name ?></title>
   <?php require_once ('js.php') ?>
 </head>
 
@@ -24,6 +24,7 @@
   <div class="container my-3">
     <?php include('jumbotron/page1.php') ?>
   </div>
+  <?php include('jumbotron/page2.php') ?>
   <?php include('footer.php') ?>
 </body>
 
