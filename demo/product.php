@@ -16,6 +16,7 @@
 <body>
   <!-- 引入導覽列 -->
   <?php include('nav.php') ?>
+  <?php include('jumbotron/page2.php') ?>
   <div class="container my-3">
     <div class="row">
       <!-- 左側選單 -->
@@ -167,7 +168,7 @@
       </div>
     </div>
   </div>
-  <?php include('jumbotron/page2.php') ?>
+
   <?php include('footer.php') ?>
 </body>
 </html>

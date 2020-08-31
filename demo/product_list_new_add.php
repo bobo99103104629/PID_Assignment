@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <?php include('style.php') ?>
-  <title><?php echo  $page_name. ' - ' .title_name ?></title>
+  <title><?php echo  $page_name ?></title>
   <meta http-equiv="refresh" content="<?php echo 0 ?>;URL=product_list.php">
   <?php require_once ('js.php') ?>
 </head>
@@ -57,7 +57,7 @@
       }
 
       $sql = "INSERT INTO PRODUCT
-              VALUE('1','$name', '$state', $stock, $price, '$target_file', '$info', $event, $type)";
+              VALUE('3', '$name', '$state', $stock, $price, '$target_file', '$info', $event, $type)";
       if ($conn -> query($sql) === TRUE)
         $_SESSION['AlertMsg'] = array('success','<i class="material-icons">done</i> 新增成功！', false);
       else

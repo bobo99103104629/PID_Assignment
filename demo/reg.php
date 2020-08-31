@@ -22,7 +22,6 @@
         <div class="card">
           <div class="card-header text-center">註冊</div>
           <div class="card-body">
-            <?php include('echo_alert.php') ?>
             <form class="row reg-panel" method="post" enctype="multipart/form-data" >
               <div class="col-12">
                 <div id="RegAlert" class="alert text-center d-none"></div>

@@ -22,7 +22,7 @@
   }
   ?>
   <!-- 根據所在頁面 印出對應的標題 -->
-  <title><?php echo  $page_name. ' - ' .title_name ?></title>
+  <title><?php echo  $page_name ?></title>
   <?php require_once ('js.php') ?>
 </head>
 <body>
@@ -78,7 +78,7 @@
                 }
 
                 echo
-                '<tr>
+                '<tr class= "text-center">
                 <td>' . $row["ID"] . '</td>
                 <td><a class="text-dark" href="product_detail.php?ID='.  $row["ID"] .'">' . $row["Name"] . '</a></td>
                 <td>' . $state . '</td>
