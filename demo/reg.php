@@ -22,6 +22,7 @@
         <div class="card">
           <div class="card-header text-center">註冊</div>
           <div class="card-body">
+            <?php include('echo_alert.php') ?>
             <form class="row reg-panel" method="post" enctype="multipart/form-data" >
               <div class="col-12">
                 <div id="RegAlert" class="alert text-center d-none"></div>
@@ -49,7 +50,7 @@
               </div>
               <div class="col-12 col-lg-6 form-group">
                 <label>生日</label>
-                <input type="date" value="2020-07-27" name="Birth" placeholder="Birth" class="form-control" >
+                <input type="date" value="1911-10-10" name="Birth" placeholder="Birth" class="form-control" >
               </div>
               <div class="col-12 col-lg-6 form-group">
                 <label>性別</label>
@@ -61,7 +62,7 @@
               </div>
               <div class="col-12 form-group">
                 <label>地址</label>
-                <input type="text" value="台中市西屯區市政北二路二段238號" name="Address" placeholder="Address" maxlength="100" class="form-control" >
+                <input type="text" value="台北市大安區忠孝東路三段一號" name="Address" placeholder="Address" maxlength="100" class="form-control" >
               </div>
               <div class="col-12 form-group">
                 <button id="reg" class="btn btn-success btn-block" type="button" >立即註冊</button>

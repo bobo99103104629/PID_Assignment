@@ -13,7 +13,7 @@ $page_name = mysqli_fetch_array($conn->query($sql))['PName'];
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- 引入CSS等樣式內容 -->
   <?php include('style.php') ?>
-  <title><?php echo  $page_name. ' - ' .title_name ?></title>
+  <title><?php echo  $page_name?></title>
   <?php require_once ('js.php') ?>
 </head>
 
