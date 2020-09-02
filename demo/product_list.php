@@ -42,7 +42,7 @@
         <?php
           if(isset($_GET['page'])){
             $total = mysqli_num_rows($conn->query("SELECT * FROM PRODUCT")); // 共幾筆資料
-            $limit = 10; // 每頁5筆
+            $limit = 5; // 每頁5筆
             $start = $_GET['page'] * $limit;
             $currentPage=$_GET['page'];
             $maxPage= ceil($total/$limit);
@@ -51,14 +51,13 @@
         <table class="table mt-3 d-none d-lg-table ">
           <thead>
             <tr class="text-center">
-              <th scope="col">#</th>
               <th scope="col" style="width:8rem">名稱</th>
               <th scope="col" style="width:5rem">狀態</th>
               <th scope="col" style="width:6rem">庫存數量</th>
-              <th scope="col" style="width:4rem">價錢</th>
+              <th scope="col" style="width:5rem">價錢</th>
               <th scope="col" style="width:10rem" >圖片</th>
-              <th scope="col">商品介紹</th>
-              <th scope="col">修改</th>
+              <th scope="col" style="width:16rem">商品介紹</th>
+              <th scope="col" style="width:10rem">修改</th>
             </tr>
           </thead>
           <tbody>
@@ -79,7 +78,6 @@
 
                 echo
                 '<tr class= "text-center">
-                <td>' . $row["ID"] . '</td>
                 <td><a class="text-dark" href="product_detail.php?ID='.  $row["ID"] .'">' . $row["Name"] . '</a></td>
                 <td>' . $state . '</td>
                 <td>' . $row["Stock"] . '</td>

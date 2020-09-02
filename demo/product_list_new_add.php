@@ -57,7 +57,7 @@
       }
 
       $sql = "INSERT INTO PRODUCT
-              VALUE('3', '$name', '$state', $stock, $price, '$target_file', '$info', $event, $type)";
+              VALUE(null, '$name', '$state', $stock, $price, '$target_file', '$info', $event, $type)";
       if ($conn -> query($sql) === TRUE)
         $_SESSION['AlertMsg'] = array('success','<i class="material-icons">done</i> 新增成功！', false);
       else

@@ -39,8 +39,5 @@
   <?php include('footer.php') ?>
 </body>
 
-<!-- <script language="Javascript">
-  // 返回上一頁
-  setTimeout("history.back()", 10);
-</script> -->
+
 </html>

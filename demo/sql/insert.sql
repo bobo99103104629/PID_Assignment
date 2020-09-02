@@ -7,3 +7,4 @@ INSERT INTO CATEGORY(Name) Value('飲料');
 
 INSERT INTO PRODUCT (Name, Price, State, Stock, DID, CategoryID, Info, Img)
 VALUE('純喫茶綠茶', 25, 'in_stock', 999, 4, 1, '採集新鮮茶葉進行炒菁，呈現茶葉鮮綠與清香，搭配柔和的茉莉綠茶，口味清爽不甜膩，新鮮暢飲最過癮!', 'http://www.pecos.com.tw/tmp/image/20140409/20140409202153_39623.jpg');
+INSERT INTO DISCOUNT (Type,PeriodFrom,PeriodTo,Requirement,Rate,Info,EventType) VALUES('Event','2017-11-28','2018-2-10',500,0.87,'快樂冰一夏','discount');

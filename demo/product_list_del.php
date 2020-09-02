@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <?php include('style.php') ?>
-  <title><?php echo  $page_name. ' - ' .title_name ?></title>
+  <title><?php echo  $page_name ?></title>
   <meta http-equiv="refresh" content="<?php echo 0 ?>;URL=product_list.php">
   <?php require_once ('js.php') ?>
 </head>
@@ -24,9 +24,9 @@
       WHERE ID =  {$_GET['ID'] } ";
 
       if ($conn -> query($sql) === TRUE)
-        $_SESSION['AlertMsg'] = array('success','<i class="material-icons">done</i> 新增成功！', false);
+        $_SESSION['AlertMsg'] = array('success','<i class="material-icons">done</i> 刪除成功！', false);
       else
-        $_SESSION['AlertMsg'] = array('danger','<i class="material-icons">block</i> 新增失敗！',false);
+        $_SESSION['AlertMsg'] = array('danger','<i class="material-icons">block</i> 刪除失敗！',false);
 
    ?>
    <?php include('footer.php') ?>

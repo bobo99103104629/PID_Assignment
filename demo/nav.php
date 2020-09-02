@@ -23,7 +23,7 @@
       <!-- 靠左 -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item <?=($this_page =='product')?'active':'';?>">
-          <a class="nav-link " href="product.php">商品</a>
+          <a class="nav-link $customer_display" href="product.php">商品</a>
         </li>
         <form class="form-inline mx-0 mx-lg-2 my-2 my-lg-0" method="get" action="product.php">
           <input class="form-control mr-sm-2" type="search" placeholder="快速搜尋" name="keyword" required>
