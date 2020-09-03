@@ -13,3 +13,8 @@
       訂單管理(V)
       折扣(V)
       折扣管理(V)
+css:
+https://github.com/a1475775412/CSS-color
+
+飲料圖片來源：
+https://www.pecos.com.tw/brands.html
