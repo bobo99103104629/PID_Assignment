@@ -28,7 +28,6 @@
   $price = $row['Price'];
   $description = $row['Info'];
   $Img = $row['Img'];
-  $DID = $row['DID'];
   $CategoryID = $row['CategoryID'];
   $State = $row['State'];
 
@@ -39,12 +38,6 @@
   // for CATEGORY
   $sql3 = "SELECT * FROM CATEGORY";
   $result3 = $conn -> query($sql3);
-
-  // for discount default
-  $sqlInfo = "SELECT Info FROM DISCOUNT WHERE ID IN (SELECT DID FROM PRODUCT WHERE ID = " . $_GET['ID'] . ")";
-  $resultInfo = $conn->query($sqlInfo);
-  $rowInfo = mysqli_fetch_array($resultInfo);
-  $info = $rowInfo['Info'];
 
   // for category DEFAULT
   $sqlCategory = "SELECT Name FROM CATEGORY WHERE ID IN (SELECT CategoryID FROM PRODUCT WHERE ID = " . $_GET['ID'] . ")";
@@ -90,26 +83,7 @@
                 <label for="">價錢 <span class="text-info">*</span></label></label>
                 <input type="number" name="price" class="form-control" value = "<?php echo $price?>" >
               </div>
-              <div class="col-12 col-lg-6 form-group">
-                <label for="">折扣狀態 <span class="text-info">*</span></label>
-                <select class="form-control" name="discount" >
-                  <?php
-                  if($info == '')
-                  echo '<option value="" selected="selected">-</option>';
-                  else
-                  echo "<option value= \"\">-</option>";
-                  if($result2->num_rows > 0) {
-                    while($row2 = $result2->fetch_assoc()){
-                      if($row2["Info"] == $info)
-                      echo "<option selected=\"selected\" value = " . $row2["ID"] . ">" . $row2["Info"] . "</option>";
-                      else
-                      echo "<option value = " . $row2["ID"] . ">" . $row2["Info"] . "</option>";
 
-                    }
-                  }
-                  ?>
-                </select>
-              </div>
               <div class="col-12 col-lg-6 form-group">
                 <label for="">商品分類 <span class="text-info">*</span></label>
                 <select class="form-control" name="category" required>

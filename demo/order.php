@@ -34,6 +34,7 @@
           <tbody>
             <?php
             $CartID = $_GET['CartID'];
+            $payson = null;
             include 'price_calculate.php'; ?>
             <tr class="text-right">
               <td colspan="6">

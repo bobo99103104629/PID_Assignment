@@ -26,12 +26,10 @@
            $list_active =
            !(isset($_GET['category']) ||
            isset($_GET['search']) ||
-           isset($_GET['page']) ||
-           isset($_GET['discount']) )?'active':'';
+           isset($_GET['page']) )?'active':'';
           ?>
           <a href="product.php?page=search" class="list-group-item list-group-item-action <?php  if(isset($_GET['page']))echo 'active' ?>"><i class="material-icons">search</i> 搜尋</a>
           <a href="product.php" class="list-group-item list-group-item-action <?= $list_active ?>"><i class="material-icons">view_list</i> 所有商品</a>
-          <a href="product.php?discount" class="list-group-item list-group-item-action text-danger <?=(isset($_GET['discount']))?'active':'';?>"><i class="material-icons">card_giftcard</i> 優惠項目</a>
 
           <?php
             $sql = "SELECT CID, CName, COUNT(*) CNum
@@ -86,21 +84,8 @@
                 }
               }
             }
-
-            // 查看所有DISCOUNT中的項目
-            if(isset($_GET['discount'])){
-              $sql.= "AND (DEventType IS NOT NULL)";
-            }
-
             $sql .= "ORDER BY CID,PID"; // 令查詢到的項目按類別->PID排序
             $result = $conn->query($sql);  // $result 存放查詢到的所有物件
-
-            if(isset($_GET['discount'])){
-              echo '<div class="col-12">
-                    <div class="alert alert- text-danger text-center border-danger">
-                    <em><strong>優惠活動中，售完為止！</strong></em>';
-              echo '</div></div>';
-            }
 
             if($search_keyword!=NULL || $search_category!=NULL || $price_from!=NULL || $price_to!=NULL)
             echo '<div class="col-12">
@@ -121,27 +106,13 @@
             if(!isset($_GET['page'])){
               while($rows = mysqli_fetch_array($result)){
 
-              // 如果有折扣的話 顯示有折扣後的價格
 
-              $gift_icon = '<span class="position-absolute" style="right:.8rem; top:.8rem;">
-                              <i class="material-icons text-info">card_giftcard</i>
-                            </span>';
-              if($rows['DEventType']=='Discount'){
-                $price_text='<span class="badge badge-danger ">NT$ ' . $rows['PPriceDiscountF'] . '</span> ';
-                $price_text.='<span class="badge badge-info">Event</span> ';
-              } else if($rows['DEventType']=='BOGO'){
-                  $price_text='<span class="badge badge-primary ">NT$ ' . $rows['PPriceF'] . '</span> ';
-                  $price_text.='<span class="badge badge-info">買一送一</span> ';
-              } else{
-                $price_text='<span class="badge badge-primary ">NT$ ' . $rows['PPriceF'] . '</span> ';
-                $gift_icon = '';
-              }
 
               echo '<div class="col-12 col-lg-4 mb-2">
                       <a href="product_detail.php?ID='. $rows['PID'] .'" class="text-dark product-item">
                         <div class="card">
                           <div class="card-body position-relative">
-                              '.$gift_icon.'
+                              .
                             <div class="row no-gutters text-left text-lg-center">
                               <div class="col-4 col-lg-12 text-center">
                                 <img src="' . $rows['PImg'] . '" class="img-fluid mb-3" style="max-height:6rem; width:auto;">
@@ -149,8 +120,7 @@
                               <div class="col-8 col-lg-12">
                                 <h5 class="card-title mb-1 text-truncate">' . $rows['PName'] . '</h5>
                                 <p class="card-text mb-2 text-truncate">' . $rows['PInfo'] . '</p>'
-                                 . $price_text . '
-                                <span class="badge badge-dark ">' . $rows['CName'] . '</span>
+                                 . '<span class="badge badge-dark ">' . $rows['CName'] . '</span>
                               </div>
                             </div>
                           </div>

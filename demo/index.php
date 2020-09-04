@@ -1,7 +1,10 @@
 <?php session_start(); ?>
 
 
-<?php include('connection.php'); ?>
+<?php 
+include('connection.php'); 
+include('mydb.php');
+?>
 
 <!DOCTYPE html>
 <html>

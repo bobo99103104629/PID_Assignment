@@ -51,9 +51,6 @@
         <li class="nav-item <?=($this_page =='product_list')?'active ':'' ?> <?=$admin_display ?>">
           <a class="nav-link" href="product_list.php">管理商品</a>
         </li>
-        <li class="nav-item <?=($this_page =='discount_list')?'active ':'' ?> <?=$admin_display ?>">
-          <a class="nav-link" href=" discount_list.php">管理折扣</a>
-        </li>
         <li class="nav-item <?=($this_page =='user_list')?'active ':'' ?> <?=$admin_display ?>">
           <a class="nav-link" href="user_list.php">管理會員</a>
         </li>

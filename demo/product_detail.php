@@ -51,12 +51,9 @@ $page_name = mysqli_fetch_array($conn->query($sql))['PName'];
                     <div class="">
                       <h4 class="text-danger d-inline-block">NT$ </h4>
                       <?php
-                      if($rows['PPriceDiscountF'] != ''){ // 有折扣
-                          echo '<h1 class="text-danger d-inline-block price">'. $rows['PPriceDiscountF'].'</h1>';
-                          echo '<h5 class="text-muted d-inline-block ml-2 "><del>NT$ '. $rows['PPriceF'].'</del></h5>';
-                      }else{ // 無折扣
-                        echo '<h1 class="text-danger d-inline-block price">'. $rows['PPriceF'].'</h1>';
-                      }
+
+                        echo '<h1 class="text-danger d-inline-block price">'. $rows['PPrice'].'</h1>';
+                      
                       ?>
 
                     </div>

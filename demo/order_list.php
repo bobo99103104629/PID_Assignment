@@ -53,7 +53,6 @@
             <th scope="col">總金額</th>
             <th scope="col">狀態</th>
             <th scope="col">收件人</th>
-            <th scope="col">折扣</th>
             <th scope="col">管理人</th>
             <th scope="col">查閱</th>
           </tr>
@@ -69,7 +68,6 @@
               <td>' . $row["FinalCost"] . '</td>
               <td>' . $row["State"] . '</td>
               <td>' . $row['memName'] . '</td>
-              <td>' . $row['Info'] . '</td>
               <td>' .  $row['stfName'] . '</td>
               <td> <button type="button" class="btn btn-primary" onclick="location.href=\'order_list_detail.php?ID=' .$row["ID"].'\'"> 查閱 </button> </td>
               </tr>';
