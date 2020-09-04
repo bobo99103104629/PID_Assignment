@@ -3,7 +3,7 @@
 
 <?php 
 include ('connection.php'); 
-require ('mydb.php');
+require ('test/mydb.php');
 ?>
 
 <!DOCTYPE html>
