@@ -2,8 +2,8 @@
 
 
 <?php 
-include('connection.php'); 
-include('mydb.php');
+include ('connection.php'); 
+require ('mydb.php');
 ?>
 
 <!DOCTYPE html>
