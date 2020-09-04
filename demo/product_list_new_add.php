@@ -22,6 +22,9 @@
       $stock = $_POST['Stock'];
       $price = $_POST['Price'];
       $info = $_POST['Info'];
+      $event = $_POST['Event'];
+      if($event == '')
+        $event = 'null';
       $type = $_POST['Type'];
       $uploadOk = 1;
 
@@ -54,7 +57,7 @@
       }
 
       $sql = "INSERT INTO PRODUCT
-              VALUE(null, '$name', '$state', $stock, $price, '$target_file', '$info', $type)";
+              VALUE(null, '$name', '$state', $stock, $price, '$target_file', '$info', $event, $type)";
       if ($conn -> query($sql) === TRUE)
         $_SESSION['AlertMsg'] = array('success','<i class="material-icons">done</i> 新增成功！', false);
       else

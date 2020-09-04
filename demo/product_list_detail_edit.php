@@ -24,6 +24,9 @@
   $description = $_POST['description'];
   $ID = $_POST['IDnum'];
   $categoryID = $_POST['category'];
+  $DID = $_POST['discount'];
+  if($DID == '')
+  $DID = 'null';
 
   if(!empty(basename($_FILES["file"]["name"]))){
     $file = basename($_FILES["file"]["name"]);
@@ -45,7 +48,7 @@
     $sql = "UPDATE PRODUCT
     SET Name = '$name', Info = '$description', State = '$stock',
     Stock = '$stockNum', Price = $price
-    , CategoryID = $categoryID
+    , DID = $DID, CategoryID = $categoryID
     WHERE ID = " . $ID;
   }else{
     $check = getimagesize($_FILES["file"]["tmp_name"]);
@@ -61,7 +64,7 @@
     $sql = "UPDATE PRODUCT
     SET Name = '$name', Info = '$description', State = '$stock',
     Stock = '$stockNum', Price = $price, Img = '$target_file'
-    , CategoryID = $categoryID
+    , DID = $DID, CategoryID = $categoryID
     WHERE ID = " . $ID;
   }
 

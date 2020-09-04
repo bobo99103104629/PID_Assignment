@@ -8,8 +8,10 @@
           </div>
           <div class="col-12 my-3 text-center">
             <h3 class="text-light d-block " >
+              <?php echo "好吃好喝" ?>
             </h3>
             <h5 class="text-light my-3" style="opacity: .9">
+              <?php echo"吃貨ㄉ店" ?>
             </h5>
           </div>
         </div>

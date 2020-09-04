@@ -34,17 +34,13 @@
           <tbody>
             <?php
             $CartID = $_GET['CartID'];
-            $payson = null;
             include 'price_calculate.php'; ?>
             <tr class="text-right">
               <td colspan="6">
                 <?php
-                  echo '共<strong>'.$SelectCount.'</strong>件商品　商品總金額：<strong>NT$ '.number_format($IniTotal).'</strong></br>';
+                  echo '共<strong>'.$SelectCount.'</strong>件商品　商品總金額：<strong>NT$ '.number_format($FinalTotal).'</strong></br>';
                   echo '運費小計：<strong>NT$ '.$Fare.'</strong></br>';
-                  if($IniTotal == $FinalTotal)
                     echo '<font size="+2">總金額：NT$ <strong>'.number_format($FinalTotal + $Fare).'</strong></font>';
-                  else
-                    echo '<font size="+2">總金額：<font size="-1"><del>NT$ '.number_format($IniTotal + $Fare).'</del></font>NT$ <strong>'.number_format($FinalTotal + $Fare).'</strong></font>';
                   $FinalTotal = $FinalTotal + $Fare;
                 ?>
               </td>

@@ -19,7 +19,6 @@
     <div class="row" >
       <?php
         $CartID = $_POST['CartID'];
-        $payson = $_POST['payson'];
         $Total = $_POST['Total'];
         $sql = "SELECT COUNT(*)
                 FROM CART_RECORD

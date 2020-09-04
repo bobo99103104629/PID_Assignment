@@ -1,10 +1,7 @@
 <?php session_start(); ?>
 
 
-<?php 
-include ('connection.php'); 
-require ('test/mydb.php');
-?>
+<?php include('connection.php'); ?>
 
 <!DOCTYPE html>
 <html>

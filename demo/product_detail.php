@@ -51,16 +51,12 @@ $page_name = mysqli_fetch_array($conn->query($sql))['PName'];
                     <div class="">
                       <h4 class="text-danger d-inline-block">NT$ </h4>
                       <?php
-
                         echo '<h1 class="text-danger d-inline-block price">'. $rows['PPrice'].'</h1>';
-                      
                       ?>
-
                     </div>
                     <div>
                       <span class="badge badge-pill badge-primary">運費: NT $60</span>
                       <span class="badge badge-pill badge-success">庫存: <?php echo $rows['PStock']; ?></span>
-                      <!-- 印出資訊折扣的資訊 -->
                     </div>
                   </div>
                 </div>

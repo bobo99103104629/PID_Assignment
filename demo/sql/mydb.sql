@@ -1,70 +1,70 @@
 CREATE DATABASE mydb;
-
 -- 會員資料;
 CREATE TABLE MEMBER(
   ID VARCHAR(20) PRIMARY KEY,
-  Password VARCHAR(128) NOT NULL,
-  Name VARCHAR(12) NOT NULL,
-  Email VARCHAR(30) NOT NULL,
-  Phone VARCHAR(10) NOT NULL,
+  Password VARCHAR(128) ,
+  Name VARCHAR(12) ,
+  Email VARCHAR(30) ,
+  Phone VARCHAR(10) ,
   RegDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   Birth DATE,
   Gender ENUM('M', 'F', 'N'),
   Address VARCHAR(100),
-  Position ENUM('S', 'A', 'C') NOT NULL
+  Position ENUM('S', 'A', 'C') 
 );
 
 -- 商品;
 CREATE TABLE PRODUCT(
   ID INT(7) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  Name VARCHAR(30) NOT NULL,
+  Name VARCHAR(30) ,
   State ENUM('in_stock', 'out_of_stock', 'removed_from_shelves'),
-  Stock INT(7) UNSIGNED NOT NULL,
-  Price INT(10) UNSIGNED NOT NULL,
-  Img VARCHAR(100) NOT NULL,
+  Stock INT(7) UNSIGNED ,
+  Price INT(10) UNSIGNED ,
+  Img VARCHAR(100) ,
   Info VARCHAR(300),
   DID INT(7) UNSIGNED,
-  CategoryID INT(7) UNSIGNED NOT NULL
+  CategoryID INT(7) UNSIGNED 
 );
 
 -- 商品類型;
 CREATE TABLE CATEGORY(
     ID INT(7) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(10) NOT NULL UNIQUE
+    Name VARCHAR(10)  UNIQUE
 );
 
 -- 訂單;
 CREATE TABLE ORDER_LIST (
   ID VARCHAR(8) PRIMARY KEY,
-  Date DATETIME NOT NULL,
+  Date DATETIME ,
   FinalCost INT(7) UNSIGNED,
-  State ENUM('submitted', 'processed', 'delivered', 'completed') NOT NULL DEFAULT 'submitted',
-  CID VARCHAR(20) NOT NULL,
+  State ENUM('submitted', 'processed', 'delivered', 'completed')  DEFAULT 'submitted',
+  CID VARCHAR(20) ,
   DID INT(7) UNSIGNED,
   SID VARCHAR(20)
 );
 
 -- 訂單和商品的特殊性關係;
 CREATE TABLE ORDER_LIST_RECORD (
-  OID VARCHAR(8) NOT NULL,
-  PID INT(7) UNSIGNED NOT NULL,
-  Quantity INT(7) UNSIGNED NOT NULL,
+  OID VARCHAR(8) ,
+  PID INT(7) UNSIGNED ,
+  Quantity INT(7) UNSIGNED ,
   PRIMARY KEY (OID, PID)
 );
 
 -- 購物車;
 CREATE TABLE CART (
   ID VARCHAR(8) PRIMARY KEY,
-  Date DATETIME NOT NULL
+  Date DATETIME 
 );
 
 -- 購物車和商品的特殊性關係;
 CREATE TABLE CART_RECORD (
   ID VARCHAR(8),
   PID INT(7) UNSIGNED,
-  Quantity INT(5) UNSIGNED NOT NULL,
+  Quantity INT(5) UNSIGNED ,
   PRIMARY KEY(ID,PID)
 );
+
 
 
 -- VIEW 視界;
@@ -78,15 +78,14 @@ DROP VIEW IF EXISTS PRODUCT_VIEW;
 CREATE VIEW PRODUCT_VIEW
 AS SELECT P.ID PID ,P.Name PName, P.Info PInfo, P.Img PImg, P.Stock PStock, P.State PState,
           C.Name CName, C.ID CID, 
-
           P.Price PPrice
+
            FROM PRODUCT P
            INNER JOIN CATEGORY C ON P.CategoryID = C.ID
            WHERE P.CategoryID = C.ID
            ORDER BY PID;
 
 -- 結合了 product的名字與照片 與 ORDER_LIST_RECORD ;
-DROP VIEW IF EXISTS ORDER_LIST_RECORD_VIEW;
 
 CREATE VIEW ORDER_LIST_RECORD_VIEW AS
 SELECT ORDER_LIST_RECORD.OID, ORDER_LIST_RECORD.PID, ORDER_LIST_RECORD.Quantity, PRODUCT.Name, PRODUCT.Img
