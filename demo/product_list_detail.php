@@ -29,7 +29,7 @@
   $description = $row['Info'];
   $Img = $row['Img'];
   $DID = $row['DID'];
-  $CategoryID = $row['CategoryID'];
+  $CategoryID = $row['CategoryName'];
   $State = $row['State'];
 
 
@@ -39,7 +39,7 @@
 
 
   // for category DEFAULT
-  $sqlCategory = "SELECT Name FROM CATEGORY WHERE ID IN (SELECT CategoryID FROM PRODUCT WHERE ID = " . $_GET['ID'] . ")";
+  $sqlCategory = "SELECT Name FROM CATEGORY WHERE ID IN (SELECT CategoryName FROM PRODUCT WHERE ID = " . $_GET['ID'] . ")";
   $resultCategory = $conn->query($sqlCategory);
   $rowCategory = mysqli_fetch_array($resultCategory);
   $category = $rowCategory['Name'];

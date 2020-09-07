@@ -22,8 +22,7 @@ CREATE TABLE PRODUCT(
   Price INT(10) UNSIGNED ,
   Img VARCHAR(100) ,
   Info VARCHAR(300),
-  DID INT(7) UNSIGNED,
-  CategoryID INT(7) UNSIGNED 
+  CategoryName VARCHAR(30)
 );
 
 -- 商品類型;
@@ -81,8 +80,8 @@ AS SELECT P.ID PID ,P.Name PName, P.Info PInfo, P.Img PImg, P.Stock PStock, P.St
           P.Price PPrice
 
            FROM PRODUCT P
-           INNER JOIN CATEGORY C ON P.CategoryID = C.ID
-           WHERE P.CategoryID = C.ID
+           INNER JOIN CATEGORY C ON P.CategoryName = C.Name
+           WHERE P.CategoryName = C.Name
            ORDER BY PID;
 
 -- 結合了 product的名字與照片 與 ORDER_LIST_RECORD ;

@@ -50,7 +50,9 @@
         <?php
         if($FinalTotal > 0){
           echo'
+          
           <form class="text-center" action="order_submit.php" method="post">
+          <a>配送地址：</a><input type="text" name="payson" value="'.$user_address.'"size="35"><br><br>
             <input type="hidden" name="CartID" value="'.$CartID.'">
             <input type="hidden" name="Total" value="'.$FinalTotal.'">
             <button class="btn btn-outline-dark mr-3 " type="submit"><i class="material-icons">check</i> 提交訂單</button>

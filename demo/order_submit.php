@@ -20,6 +20,7 @@
       <?php
         $CartID = $_POST['CartID'];
         $Total = $_POST['Total'];
+        $Payson = $_POST['payson'];
         $sql = "SELECT COUNT(*)
                 FROM CART_RECORD
                 WHERE ID = '".$CartID."'";
@@ -55,6 +56,10 @@
             $conn->query($sql);
             $sql = "DELETE FROM CART
                     WHERE ID='".$CartID."'";
+            $conn->query($sql);
+            $sql = "UPDATE MEMBER
+                    SET Address = '$Payson'
+                    WHERE ID='".$user_id."'";
             $conn->query($sql);
             $_SESSION['AlertMsg'] =
             array('success','<i class="material-icons">done</i> 訂單已成功送出！',false);

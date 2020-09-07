@@ -178,6 +178,8 @@ $page_name = '訂單';
             $orderCost = '<div class="col-12 mt-5 mt-lg-0 col-lg-3 text-right position-relative" >
             <div class="position-absolute  " style="bottom:0rem; right:2rem;">
             總金額:  <h3 class="d-inline-block"><strong class="text-danger">NT$ '.$rowsAll['FinalCost'].'</strong></h3>
+            <span class="badge badge-pill badge-primary">運費: NT $60</span>
+
             </div></div></div></div>';
 
             $cardEnd="</div></div>";
