@@ -49,8 +49,8 @@
   else if(mysqli_num_rows($result) > 0){
     while($rows = mysqli_fetch_array($result)){
       $cost =  $rows['PPrice'];
-      $FinalTotal = $cost;
       $SelectCount += $rows['CRQ']; // 總商品數量
+      $FinalTotal = $cost*$SelectCount;
       if($this_page == "cart")
         echo EchoCartItem($rows['PIMG'], $rows['PName'], $cost, $rows['CRQ'], $CartID, $rows['PID']);
       else if($this_page == "order")

@@ -20,6 +20,7 @@ $page_name = mysqli_fetch_array($conn->query($sql))['PName'];
 <body>
   <!-- 引入導覽列 -->
   <?php include('nav.php') ?>
+  <?php include('jumbotron/page2.php') ?>
   <div class="container my-3">
     <?php include('echo_alert.php') ?>
     <div class="row">
@@ -35,12 +36,12 @@ $page_name = mysqli_fetch_array($conn->query($sql))['PName'];
           <div class="card-body">
             <div class="row">
 
-              <div class="col-12 col-lg-4 text-center">
+              <div class="col-12 col-lg-4 my-3 text-center">
                 <img src="<?php echo $rows['PImg'] ?>" class="img-fluid rounded mx-auto d-block" style="max-height: 16rem; width: auto;">
               </div>
-              <div class="col-12 col-lg-8">
+              <div class="col-12 col-lg-8 ">
                 <div class="mb-3">
-                  <h2 class="text-center text-lg-left d-inline"><?php echo $rows['PName']; ?></h2>
+                  <h2 class="text-lg-left d-inline"><?php echo $rows['PName']; ?></h2>
                   <span class="badge badge-dark badge-pill mx-2"><?php echo $rows['CName']; ?></span>
                 </div>
 
