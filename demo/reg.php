@@ -36,21 +36,21 @@
               <label>密碼 <span class="text-info">*</span></label>           
               <input type="password" id="pwd" value="" name="Password" placeholder="Password" maxlength="20" class="form-control" required>
               <i class="fa fa-eye" onclick="showhide()" id="eye"></i>
-            <script type="text/javascript">
-              var eye = document.getElementById("eye");
-              var pwd = document.getElementById("pwd");
-                function showhide(){
-                  if (pwd.type == "password") {
-                        pwd.type = "text";
-                        eye.className='fa fa-eye-slash'
-                  }else {
-                        pwd.type = "password";
-                        eye.className='fa fa-eye'
+              <script type="text/javascript">
+                var eye = document.getElementById("eye");
+                var pwd = document.getElementById("pwd");
+                  function showhide(){
+                    if (pwd.type == "password") {
+                          pwd.type = "text";
+                          eye.className='fa fa-eye-slash'
+                    }else {
+                          pwd.type = "password";
+                          eye.className='fa fa-eye'
+                    }
                   }
-                }
-            </script>
-            
-            </div>
+              </script>
+              
+              </div>
               <div class="col-12 form-group">
                 <label>姓名 <span class="text-info">*</span></label>
                 <input type="text" value="新鮮人" name="Name" placeholder="Name" maxlength="12" class="form-control" required>
@@ -129,9 +129,9 @@ $("input[name='ID']").change(function(){
   },
   function(data,status){
     if(data=='pwerr'){
-
+      $('#IDIsDuplicate').html('<i class="material-icons" style="font-size:.8rem">clear</i> 帳號已被使用!').removeClass('d-none');
     }else{
-      $('#IDIsSuccess').html('<i class="material-icons" style="font-size:.8rem">done</i> 帳號可以使用!').removeClass('d-none');
+      $('#IDIsDuplicate').html('').addClass('d-none')
     }
   });
 });

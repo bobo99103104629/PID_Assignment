@@ -134,9 +134,9 @@ $page_name = '訂單';
             <div class="progress-bar '.$isCompleted.' text-light " style="width: 25%; ">已完成</div>
             </div></div>';
 
-            $orderInformation ='<div class="col-4"><strong>收件人: </strong>'.$user_name.'</div>
-            <div class="col-6"><strong>收件人電話:</strong> '.$user_phone.'</div>
-            <div class="col-6"><strong>收件地址:</strong> '.$user_address.'</div>';
+            $orderInformation ='<div class="col-4"><strong>收件人: </strong>'.$rowsAll['oName'].'</div>
+            <div class="col-6"><strong>收件人電話:</strong> '.$rowsAll['oPhone'].'</div>
+            <div class="col-6"><strong>收件地址:</strong> '.$rowsAll['Address'].'</div>';
 
             $OID=$rowsAll['ID'];
 
@@ -178,7 +178,6 @@ $page_name = '訂單';
             $orderCost = '<div class="col-12 mt-5 mt-lg-0 col-lg-3 text-right position-relative" >
             <div class="position-absolute  " style="bottom:0rem; right:2rem;">
             總金額:  <h3 class="d-inline-block"><strong class="text-danger">NT$ '.$rowsAll['FinalCost'].'</strong></h3>
-            <span class="badge badge-pill badge-primary">運費: NT $60</span>
 
             </div></div></div></div>';
 
@@ -186,9 +185,7 @@ $page_name = '訂單';
 
             echo  $cardStart.$orderNumber.$orderProgressBar.$orderInformation.$orderDetail.$orderCost.$cardEnd;
 
-            // RESET (好像其實也用不到)
-            // $orderNumber = $orderProgressBar = $orderInformation = $orderDetail = $orderCost ='';
-            // $isSubmitted = $isProcessed = $isDelivered = $isCompleted = '';
+            
           }
         }
         ?>

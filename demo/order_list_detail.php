@@ -18,15 +18,14 @@
 <body>
   <?php include('nav.php');
   //----------------------From order_list----------------
-  $sql = "SELECT * FROM ORDER_LIST_VIEW WHERE ID = '" . $_GET['ID'] . "'";
+  $sql = "SELECT * FROM ORDER_LIST WHERE ID = '" . $_GET['ID'] . "'";
   $result = $conn->query($sql);
   $row = mysqli_fetch_array($result);
 
   $ID = $row['ID'];
-  $memName = $row['memName'];
+  $memName = $row['oName'];
   $Date = $row['Date'];
-  $Phone = $row['Phone'];
-  $mail = $row['Email'];
+  $Phone = $row['oPhone'];
   $FinalCost = $row['FinalCost'];
   $State = $row['State'];
   $Address = $row['Address'];
@@ -39,8 +38,8 @@
 
 
   $stateStr = array("submitted", "processed", "delivered", "completed");
-  $attr = array("ID", "收件人", "mail", "電話", "地址", "訂單時間", "金額");
-  $attrValue = array("$ID", "$memName", "$mail", "$Phone", "$Address", "$Date", "$FinalCost");
+  $attr = array("ID", "收件人",  "電話", "地址", "訂單時間", "金額");
+  $attrValue = array("$ID", "$memName",  "$Phone", "$Address", "$Date", "$FinalCost");
   $attrSize = count($attr);
   $isDisplay = '';
   $idColSize = '';
@@ -66,7 +65,7 @@
                 <div class="form-group row">
                   <label class="col-2 col-form-label font-weight-bold">' .$attr[$x]. '</label>
                   <div class="col-10">
-                    <input type="text" size="70" readonly class="form-control-plaintext" value="' . $attrValue[$x] . '">
+                    <input type="text" size="70"  class="form-control-plaintext" value="' . $attrValue[$x] . '">
                   </div>
                 </div>';
               }

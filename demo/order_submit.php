@@ -21,6 +21,8 @@
         $CartID = $_POST['CartID'];
         $Total = $_POST['Total'];
         $Payson = $_POST['payson'];
+        $Pay1 = $_POST['pay1'];
+        $Pay2 = $_POST['pay2'];
         $sql = "SELECT COUNT(*)
                 FROM CART_RECORD
                 WHERE ID = '".$CartID."'";
@@ -57,9 +59,17 @@
             $sql = "DELETE FROM CART
                     WHERE ID='".$CartID."'";
             $conn->query($sql);
-            $sql = "UPDATE MEMBER
+            $sql = "UPDATE ORDER_LIST
                     SET Address = '$Payson'
-                    WHERE ID='".$user_id."'";
+                    WHERE ID='".$OrderID."'";
+            $conn->query($sql);
+            $sql = "UPDATE ORDER_LIST
+                    SET oName = '$Pay1'
+                    WHERE ID='".$OrderID."'";
+            $conn->query($sql);
+            $sql = "UPDATE ORDER_LIST
+                    SET oPhone = '$Pay2'
+                    WHERE ID='".$OrderID."'";
             $conn->query($sql);
             $_SESSION['AlertMsg'] =
             array('success','<i class="material-icons">done</i> 訂單已成功送出！',false);

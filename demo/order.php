@@ -52,13 +52,32 @@
           echo'
           
           <form class="text-center" action="order_submit.php" method="post">
-          <a>配送地址：</a><input type="text" name="payson" value="'.$user_address.'"size="35"><br><br>
+          <div class="container my-3">
+          <div class="row">
+            <div class="col-12 col-lg-6 offset-lg-3">
+              <div class="card">
+                <div class="card-header text-center">訂單資料</div>
+                <div class="card-body">
+                    <div class="col-12 form-group">
+                      <label>收件人姓名 <span class="text-info">*</span></label>
+                      <input type="text" value="'.$user_name.'" name="pay1" placeholder="Username" maxlength="20" class="form-control" required>
+                    </div> 
+                    <div class="col-12 form-group">
+                      <label>手機號碼 <span class="text-info">*</span></label>
+                      <input type="text" value="'.$user_phone.'" name="pay2" placeholder="Phone" maxlength="10" class="form-control" required>
+                    </div>   
+                    <div class="col-12 form-group">
+                      <label>配送地址 <span class="text-info">*</span></label>
+                      <input type="text" value="'.$user_address.'" name="payson" placeholder="Address" maxlength="100" class="form-control" >
+                    </div>         
             <input type="hidden" name="CartID" value="'.$CartID.'">
             <input type="hidden" name="Total" value="'.$FinalTotal.'">
             <button class="btn btn-outline-dark mr-3 " type="submit"><i class="material-icons">check</i> 提交訂單</button>
             <button type="button" class="btn btn-outline-dark" onclick="location.href=\'order_del.php?CartID='.$CartID.'\'" >
               <i class="material-icons">clear</i> 取消訂單
             </button>
+            </div>
+            </div>
           </form>';
         } else{
           die ('<meta http-equiv="refresh" content="0;URL=cart.php">');

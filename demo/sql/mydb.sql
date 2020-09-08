@@ -37,7 +37,10 @@ CREATE TABLE ORDER_LIST (
   Date DATETIME ,
   FinalCost INT(7) UNSIGNED,
   State ENUM('submitted', 'processed', 'delivered', 'completed')  DEFAULT 'submitted',
-  CID VARCHAR(20)
+  CID VARCHAR(20),
+  oName VARCHAR(12) ,
+  oPhone VARCHAR(10) ,
+  Address VARCHAR(100)
 );
 
 -- 訂單和商品的特殊性關係;
@@ -90,12 +93,4 @@ SELECT ORDER_LIST_RECORD.OID, ORDER_LIST_RECORD.PID, ORDER_LIST_RECORD.Quantity,
 FROM ORDER_LIST_RECORD, PRODUCT
 WHERE ORDER_LIST_RECORD.PID = PRODUCT.ID;
 
-
-DROP VIEW IF EXISTS ORDER_LIST_VIEW;
-
--- 結合了 member(又分收件人與員工) discount ORDER_LIST_RECORD 的 view ;
-CREATE VIEW ORDER_LIST_VIEW AS
-SELECT O.*, mem.Name "memName", mem.Email, mem.Phone, mem.Address
-FROM ORDER_LIST O
-LEFT JOIN MEMBER mem ON O.CID = mem.ID;
 

@@ -11,7 +11,6 @@
   <title><?php echo  $page_name ?></title>
   <?php require_once ('js.php') ?>
 </head>
-
 <body>
   <?php include('nav.php'); ?>
   <div class="container my-3">
@@ -29,10 +28,9 @@
               <tr class="text-lg-left">
                 <?php
                   $OrderID = $_GET['OrderID'];
-                  $sql = "SELECT M.Name Name, O.Date Date, O.FinalCost FinalCost, M.Address Address, M.Phone Phone
-                          FROM ORDER_LIST O
-                          JOIN MEMBER M ON O.CID = M.ID
-                          WHERE O.ID = '".$OrderID."'";
+                  $sql = "SELECT *
+                          FROM ORDER_LIST
+                          WHERE ID = '".$OrderID."'";
                   $result = $conn->query($sql);
                   $rows = mysqli_fetch_array($result);
                   $Total = $rows['FinalCost'];
@@ -40,8 +38,8 @@
                     <th>
                       訂單編號：<strong>'.$OrderID.'</strong></br>
                       訂單總金額：<strong>NT$ '.number_format($Total).'</strong></br>
-                      訂購人姓名：'.$rows['Name'].'</br>
-                      訂購人電話：'.$rows['Phone'].'</br>
+                      訂購人姓名：'.$rows['oName'].'</br>
+                      訂購人電話：'.$rows['oPhone'].'</br>
                       訂購日期：'.$rows['Date'].'</br>
                       配送地址：'.$rows['Address'].'</br>
                     </th>';

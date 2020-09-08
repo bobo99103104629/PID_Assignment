@@ -17,7 +17,7 @@
 </head>
 <body>
   <?php include('nav.php');
-  $sql = "SELECT * FROM ORDER_LIST_VIEW";
+  $sql = "SELECT * FROM ORDER_LIST";
   $state='';
   if(isset($_GET['State'])){
     $state=$_GET['State'];
@@ -53,7 +53,7 @@
             <th scope="col">總金額</th>
             <th scope="col">狀態</th>
             <th scope="col">收件人</th>
-            <th scope="col">查閱</th>
+            <th scope="col">查閱/刪除</th>
           </tr>
         </thead>
         <tbody>
@@ -66,8 +66,11 @@
               <td>' . $row["Date"] . '</td>
               <td>' . $row["FinalCost"] . '</td>
               <td>' . $row["State"] . '</td>
-              <td>' . $row['memName'] . '</td>
-              <td> <button type="button" class="btn btn-primary" onclick="location.href=\'order_list_detail.php?ID=' .$row["ID"].'\'"> 查閱 </button> </td>
+              <td>' . $row['oName'] . '</td>
+              <td> 
+              <button type="button" class="btn btn-primary" onclick="location.href=\'order_list_detail.php?ID=' .$row["ID"].'\'"> 查閱 </button> 
+              <button type="button" class="btn btn-danger" onclick="location.href=\'order_list_del.php?ID=' .$row["ID"].'\'"> 刪除 </button>
+              </td>
               </tr>';
             }
           }
