@@ -86,7 +86,7 @@
                 <td>' . $row["Info"] . '</td>
                 <td> 
                     <button type="button" class="btn btn-primary" onclick="location.href=\'product_list_detail.php?ID=' .$row["ID"].'\'"> 修改 </button>
-                    <button type="button" class="btn btn-primary" onclick="location.href=\'product_list_del.php?ID=' .$row["ID"].'\'"> 刪除 </button>
+                    <button type="button" class="btn btn-danger" onclick="location.href=\'product_list_del.php?ID=' .$row["ID"].'\'"> 刪除 </button>
                 </td>
                 
 
