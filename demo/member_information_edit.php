@@ -23,7 +23,9 @@
         date_default_timezone_set('Asia/Taipei');
 
         $ID=$_POST['ID'];
-        $Password=md5($_POST['Password']);
+        $Password=($_POST['Password']);
+        $hash = password_hash($Password, PASSWORD_DEFAULT);
+        $hash = password_hash($Password, PASSWORD_DEFAULT, ['cost' => 11]);
         $Name=$_POST['Name'];
         $Email=$_POST['Email'];
         $Phone=$_POST['Phone'];
@@ -33,7 +35,7 @@
         $Address=$_POST['Address'];
 
         $sql= "UPDATE MEMBER
-        SET Password='$Password',Email='$Email',Name='$Name',Phone='$Phone',Regdate='$Regdate',Birth='$Birth',Gender='$Gender',Address='$Address'
+        SET Password='$hash',Email='$Email',Name='$Name',Phone='$Phone',Regdate='$Regdate',Birth='$Birth',Gender='$Gender',Address='$Address'
         WHERE ID='$ID'";
         $conn->query($sql);
 

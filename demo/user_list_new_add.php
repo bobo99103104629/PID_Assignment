@@ -26,7 +26,7 @@
         $Name=$_POST['Name'];
         $Email=$_POST['Email'];
         $Phone=$_POST['Phone'];
-        $Regdate=date("Y/m/d");//取得年份/月/日 時:分:秒
+        $Regdate=date("Y/m/d h:m:s");//取得年份/月/日 時:分:秒
         $Birth=$_POST['Birth'];
         $Gender=$_POST['Gender'];
         $Address=($_POST['Address']=NULL)?NULL:$_POST['Address'];
@@ -38,7 +38,7 @@
         $rows= $conn->query($sql_check);
         if(mysqli_num_rows($rows)>=1){ // 若欲查詢的在資料庫中已存在(結果筆數>=1)
           $_SESSION['AlertMsg'] =
-          array('danger','<i class="material-icons">clear</i> 名稱已被使用<br>點擊返回修改',false);
+          array('danger','<i class="material-icons">clear</i> 名稱已被使用',false);
         } else{
           if ($conn->query($sql) === true) {
             $_SESSION['AlertMsg'] =

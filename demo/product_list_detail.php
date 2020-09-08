@@ -28,21 +28,10 @@
   $price = $row['Price'];
   $description = $row['Info'];
   $Img = $row['Img'];
-  $DID = $row['DID'];
-  $CategoryID = $row['CategoryName'];
+  $CategoryName = $row['CategoryName'];
   $State = $row['State'];
 
 
-  // for CATEGORY
-  $sql3 = "SELECT * FROM CATEGORY";
-  $result3 = $conn -> query($sql3);
-
-
-  // for category DEFAULT
-  $sqlCategory = "SELECT Name FROM CATEGORY WHERE ID IN (SELECT CategoryName FROM PRODUCT WHERE ID = " . $_GET['ID'] . ")";
-  $resultCategory = $conn->query($sqlCategory);
-  $rowCategory = mysqli_fetch_array($resultCategory);
-  $category = $rowCategory['Name'];
 
   // for stock type
   $discountType = ["in_stock", "out_of_stock", "removed_from_shelves"];
@@ -81,41 +70,6 @@
               <div class="col-12 col-lg-6 form-group">
                 <label for="">價錢 <span class="text-info">*</span></label></label>
                 <input type="number" name="price" class="form-control" value = "<?php echo $price?>" >
-              </div>
-              <div class="col-12 col-lg-6 form-group">
-                <label for="">折扣狀態 <span class="text-info">*</span></label>
-                <select class="form-control" name="discount" >
-                  <?php
-                  if($info == '')
-                  echo '<option value="" selected="selected">-</option>';
-                  else
-                  echo "<option value= \"\">-</option>";
-                  if($result2->num_rows > 0) {
-                    while($row2 = $result2->fetch_assoc()){
-                      if($row2["Info"] == $info)
-                      echo "<option selected=\"selected\" value = " . $row2["ID"] . ">" . $row2["Info"] . "</option>";
-                      else
-                      echo "<option value = " . $row2["ID"] . ">" . $row2["Info"] . "</option>";
-
-                    }
-                  }
-                  ?>
-                </select>
-              </div>
-              <div class="col-12 col-lg-6 form-group">
-                <label for="">商品分類 <span class="text-info">*</span></label>
-                <select class="form-control" name="category" required>
-                  <?php
-                  if($result3->num_rows > 0) {
-                    while($row3 = $result3->fetch_assoc()){
-                      if($row3["Name"] == $category)
-                      echo "<option selected=\"selected\" value = " . $row3["ID"] . ">" . $row3["Name"] . "</option>";
-                      else
-                      echo "<option value = " . $row3["ID"] . ">" . $row3["Name"] . "</option>";
-                    }
-                  }
-                  ?>
-                </select>
               </div>
               <div class="col-12 col-lg-6 form-group">
                 <label for="exampleFormControlFile1">上傳圖片</label>

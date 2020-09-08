@@ -14,7 +14,6 @@
   <?php require_once ('js.php') ?>
 </head>
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-
 <body>
   <?php include('nav.php'); ?>
   <div class="container my-3">
@@ -23,19 +22,19 @@
         <div class="card">
           <div class="card-header text-center">註冊</div>
           <div class="card-body">
-            <?php include('echo_alert.php') ?>
             <form class="row reg-panel" method="post" enctype="multipart/form-data" >
               <div class="col-12">
                 <div id="RegAlert" class="alert text-center d-none"></div>
               </div>
               <div class="col-12 form-group">
                 <label>帳號 <span class="text-info">*</span></label>
-                <input type="text" value="newbie" name="ID" placeholder="Username" maxlength="20" class="form-control" required>
+                <input type="text" value="" name="ID" placeholder="Username" maxlength="20" class="form-control" required>
                 <small id="IDIsDuplicate" class="text-warning d-none"></small>
+                <small id="IDIsSuccess" class="text-success d-none"></small>
               </div>
-              <div class="col-12 form-group">
-              
-              <input type="password" id="pwd" value="newbie" name="Password" placeholder="Password" maxlength="20" class="form-control" required>
+              <div class="col-12 form-group">   
+              <label>密碼 <span class="text-info">*</span></label>           
+              <input type="password" id="pwd" value="" name="Password" placeholder="Password" maxlength="20" class="form-control" required>
               <i class="fa fa-eye" onclick="showhide()" id="eye"></i>
             <script type="text/javascript">
               var eye = document.getElementById("eye");
@@ -50,6 +49,7 @@
                   }
                 }
             </script>
+            
             </div>
               <div class="col-12 form-group">
                 <label>姓名 <span class="text-info">*</span></label>
@@ -129,12 +129,11 @@ $("input[name='ID']").change(function(){
   },
   function(data,status){
     if(data=='pwerr'){
-      $('#IDIsDuplicate').html('<i class="material-icons" style="font-size:.8rem">clear</i> 帳號已被使用!').removeClass('d-none');
+
     }else{
-      $('#IDIsDuplicate').html('').addClass('d-none')
+      $('#IDIsSuccess').html('<i class="material-icons" style="font-size:.8rem">done</i> 帳號可以使用!').removeClass('d-none');
     }
   });
 });
-
 </script>
 </html>

@@ -29,7 +29,6 @@
   $mail = $row['Email'];
   $FinalCost = $row['FinalCost'];
   $State = $row['State'];
-  $stfName = $row['stfName'];
   $Address = $row['Address'];
 
   //---------------------From member----------------
@@ -40,8 +39,8 @@
 
 
   $stateStr = array("submitted", "processed", "delivered", "completed");
-  $attr = array("ID", "收件人", "mail", "電話", "地址", "訂單時間", "金額", "接管成員");
-  $attrValue = array("$ID", "$memName", "$mail", "$Phone", "$Address", "$Date", "$FinalCost", "$stfName");
+  $attr = array("ID", "收件人", "mail", "電話", "地址", "訂單時間", "金額");
+  $attrValue = array("$ID", "$memName", "$mail", "$Phone", "$Address", "$Date", "$FinalCost");
   $attrSize = count($attr);
   $isDisplay = '';
   $idColSize = '';
@@ -73,7 +72,7 @@
               }
                ?>
               <div class="row">
-                <div class="form-group <?php echo $idColSize ?>">
+                <div class="form-group col-12">
                   <label for="inputState" class="font-weight-bold">State</label>
                   <select class="form-control" name="state">
                     <?php
@@ -84,22 +83,6 @@
                         echo "<option selected>$value</option>";
                       }
                     }
-                    ?>
-                  </select>
-                </div>
-                <div class="form-group col-6 <?php echo $isDisplay ?>">
-                  <label for="inputState">接管成員</label>
-                  <select class="form-control" name="manageName">
-                    <?php
-                      echo "<option></option>";
-                      while($rowName = $resultName->fetch_assoc()){
-                        $Name = $rowName['Name'];
-                        if($Name !== $stfName){
-                          echo "<option>" . $Name . "</option>";
-                        }else{
-                          echo "<option selected>" . $Name . "</option>";
-                        }
-                      }
                     ?>
                   </select>
                 </div>

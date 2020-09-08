@@ -76,7 +76,6 @@ $page_name = mysqli_fetch_array($conn->query($sql))['PName'];
                   </div>
                 </form>
                 <hr class="my-4">
-                <!-- 評論 -->
               </div>
             </div>
           </div>

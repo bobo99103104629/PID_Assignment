@@ -22,12 +22,7 @@
     }
     $ID = $_POST['ID'];
 
-    $sqlSID = "SELECT ID FROM MEMBER WHERE Name = '" . $manageName . "'";
-    $resuldSID = $conn->query($sqlSID);
-    $rowSID = mysqli_fetch_array($resuldSID);
-    $SID = $rowSID['ID'];
-
-    $sql = "UPDATE ORDER_LIST SET State = '" . $state . "', SID = '" . $SID . "' WHERE ID = '" . $ID . "'";
+    $sql = "UPDATE ORDER_LIST SET State = '" . $state . "' WHERE ID = '" . $ID . "'";
     $result = $conn->query($sql);
     if($result === TRUE){
       $_SESSION['AlertMsg'] = array('success','<i class="material-icons">done</i> 修改成功！', false);
