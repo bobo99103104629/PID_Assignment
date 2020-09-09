@@ -27,6 +27,7 @@
             <th class="align-middle">NT$ '.number_format($cost * $CRQ).'</th>
           </tr>';
   }
+  $IniTotal = 0;
   $FinalTotal = 0;
   $SelectCount = 0;
   $Fare = 60;
@@ -50,7 +51,7 @@
     while($rows = mysqli_fetch_array($result)){
       $cost =  $rows['PPrice'];
       $SelectCount += $rows['CRQ']; // 總商品數量
-      $FinalTotal = $cost*$SelectCount;
+      $FinalTotal += $cost*$rows['CRQ'];
       if($this_page == "cart")
         echo EchoCartItem($rows['PIMG'], $rows['PName'], $cost, $rows['CRQ'], $CartID, $rows['PID']);
       else if($this_page == "order")
