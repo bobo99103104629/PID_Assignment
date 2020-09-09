@@ -45,8 +45,8 @@
           <a class="nav-link" href="reg.php">註冊</a>
         </li>
         <!-- Admin & Staff  -->
-        <li class="nav-item <?=($this_page =='order_list_season')?'active ':'' ?> <?=$admin_display ?>">
-          <a class="nav-link" href="order_list_season.php">當月訂單</a>
+        <li class="nav-item <?=($this_page =='order_list_season'||$this_page =='order_product')?'active ':'' ?> <?=$admin_display ?>">
+          <a class="nav-link" href="order_list_season.php">當月營收</a>
         </li>
         <li class="nav-item <?=($this_page =='order_list')?'active ':'' ?> <?=$admin_display ?>">
           <a class="nav-link" href="order_list.php">管理訂單</a>

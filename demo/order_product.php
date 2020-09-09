@@ -23,17 +23,21 @@
 </head>
 <body>
   <?php include('nav.php');
-  $sql = "SELECT * FROM ORDER_LIST WHERE Date>= '$date2' AND Date<='$date3' AND State = 'completed'";
-  $result = $conn->query($sql);
-  $sql = "SELECT COUNT(*)  COUNT FROM ORDER_LIST WHERE Date>= '$date2' AND Date<='$date3' AND State = 'completed'";
+
+
+  $sql = "SELECT * FROM order_list_record_view ";
   $rows = mysqli_fetch_array($conn->query($sql));
-  $aaa = $rows['COUNT'];
+  $sql2 = "SELECT sum(Quantity) FROM order_list_record_view ";
+  $bbb = mysqli_fetch_array($conn->query($sql2));
+  $result = $conn->query($sql);
+  $bbb = $bbb['sum(Quantity)'];
+
   ?>
   <div class="container mt-3"><?php include('echo_alert.php') ?></div>
   <div class="container">
     <div class="row mt-4">
     <div class="col text-center">
-        <button type="button" class="btn btn-outline-dark btn-block <?=($page_name=='當月訂單')?'active':''?>" onclick="javascript:location.href='order_list_season.php?'">當月訂單</button>
+        <button type="button" class="btn btn-outline-dark btn-block <?=($state=='')?'active':''?>" onclick="javascript:location.href='order_list_season.php?'">當月訂單</button>
       </div>
       <div class="col text-center">
         <button type="button" class="btn btn-outline-dark btn-block <?=($state=='')?'active':''?>" onclick="javascript:location.href='order_product.php?'">當月銷售</button>
@@ -44,10 +48,9 @@
         <thead>
           <tr class="text-center">
             <th scope="col">ID</th>
+            <th scope="col">名稱</th>
+            <th scope="col">數量</th>
             <th scope="col">Date</th>
-            <th scope="col">總金額</th>
-            <th scope="col">收件人</th>
-            <th scope="col">查閱</th>
           </tr>
         </thead>
         <tbody>
@@ -56,12 +59,11 @@
             while($row = $result->fetch_assoc()){
               echo
               '<tr class="text-center">
-              <td>' . $row["ID"] . '</td>
+              <td>' . $row["OID"] . '</td>
+              <td>' . $row["Name"] . '</td>
+              <td>' . $row["Quantity"] . '</td>
               <td>' . $row["Date"] . '</td>
-              <td>' . $row["FinalCost"] . '</td>
-              <td>' . $row['oName'] . '</td>
               <td> 
-              <button type="button" class="btn btn-primary" onclick="location.href=\'order_product_detail.php?ID=' .$row["ID"].'\'"> 查閱 </button> 
               </td>
               </tr>';
             }
@@ -72,7 +74,7 @@
             <tr class="text-right">
               <td colspan="6">
                 <?php
-                  echo '共<strong>'.$aaa.'</strong>個訂單　</br>';
+                  echo '共<strong>'.$bbb.'</strong>個產品　</br>';
                     echo '<font size="+2">當前月收入：NT$ <strong>'.number_format($FinalTotal).'</strong></font>';
 
                 ?>

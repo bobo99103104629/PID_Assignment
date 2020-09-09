@@ -45,8 +45,8 @@
             while($rows = mysqli_fetch_array($result)){
               $PID = $rows['PID'];
               $Quantity = $rows['Quantity'];
-              $sql = "INSERT INTO ORDER_LIST_RECORD(OID, PID, Quantity)
-                      VALUES('$OrderID', $PID, $Quantity);";
+              $sql = "INSERT INTO ORDER_LIST_RECORD(OID, PID, Quantity, Date)
+                      VALUES('$OrderID', $PID, $Quantity, CURRENT_TIMESTAMP);";
               $conn->query($sql);
             }
             $sql = "UPDATE ORDER_LIST

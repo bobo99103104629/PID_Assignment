@@ -70,22 +70,7 @@
                 </div>';
               }
                ?>
-              <div class="row">
-                <div class="form-group col-12">
-                  <label for="inputState" class="font-weight-bold">State</label>
-                  <select class="form-control" name="state">
-                    <?php
-                    foreach ($stateStr as $value){
-                      if($value !== $State){
-                        echo "<option>$value</option>";
-                      }else{
-                        echo "<option selected>$value</option>";
-                      }
-                    }
-                    ?>
-                  </select>
-                </div>
-                <?php include('order_list_detail_table.php'); ?>
+                <?php include('order_product_detail_table.php'); ?>
               </div>
             </form>
           </div>
