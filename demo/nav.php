@@ -8,6 +8,7 @@
 
   $customer_display  = ($user_position=='C'||$user_position=='G')?'':'d-none '; // Customer和Guest的Display
   $admin_display  = ($user_position=='A'||$user_position=='S')?'':'d-none '; // Admin和Staff的Display
+  $admin = ($user_position=='A')?'':'d-none ';
 ?>
 <?php require_once 'login.php' ?>
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary1 sticky-top " style="background:rgba(62,63,58,1);">
@@ -45,7 +46,7 @@
           <a class="nav-link" href="reg.php">註冊</a>
         </li>
         <!-- Admin & Staff  -->
-        <li class="nav-item <?=($this_page =='order_list_season'||$this_page =='order_product')?'active ':'' ?> <?=$admin_display ?>">
+        <li class="nav-item <?=($this_page =='order_list_season'||$this_page =='order_product')?'active ':'' ?> <?=$admin ?>">
           <a class="nav-link" href="order_list_season.php">當月營收</a>
         </li>
         <li class="nav-item <?=($this_page =='order_list')?'active ':'' ?> <?=$admin_display ?>">
