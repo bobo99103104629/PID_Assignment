@@ -12,8 +12,6 @@
       訂單(V)
       訂單管理(V)
       客戶訂單(V)
-      折扣(V)
-      折扣管理(V)
 css:
 https://github.com/a1475775412/CSS-color
 
